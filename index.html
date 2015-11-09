@@ -1,23 +1,37 @@
 <!DOCTYPE html>
-<html ng-app="jeviteca">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Jeviteca</title>
     <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+    <style>body { padding-top: 70px; }</style>
 </head>
-<body>
-<nav class="navbar navbar-inverse navbar-static-top">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">Jeviteca</a>
+<body ng-app="jeviteca">
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Jeviteca</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ng-class="{ 'active': routeIsAlbums() }"><a href="#/albums">Albums</a></li>
+            <li ng-class="{ 'active': routeIsBands() }"><a href="#/bands">Bands</a></li>
+            <li ng-class="{ 'active': routeIsGenres() }"><a href="#/genres">Genres</a></li>
+        </ul>
     </div>
-    <ul class="nav navbar-nav">
-        <li><a href="#">Álbumes</a></li>
-        <li><a href="#">Bandas</a></li>
-        <li><a href="#">Géneros</a></li>
-    </ul>
 </nav>
 
+<section app-view-segment="0"></section>
+
+    <!-- Cargamos librerias AngularJS -->
     <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-route-segment/1.5.0/angular-route-segment.min.js"></script>
+    <!-- Cargamos app.js -->
     <script src="scripts/app.js"></script>
+    <!-- Cargamos controladores -->
+    <script src="scripts/controllers/NavController.js"></script>
+    <script src="scripts/controllers/AlbumsController.js"></script>
+    <script src="scripts/controllers/BandsController.js"></script>
+    <script src="scripts/controllers/GenresController.js"></script>
 </body>
 </html>
