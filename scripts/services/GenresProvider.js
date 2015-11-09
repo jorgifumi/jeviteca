@@ -1,6 +1,6 @@
 
-app.service("GenresProvider", function($http) {
+app.service("GenresProvider", function($http, Properties) {
     this.getGenres = function() {
-        return $http.get("data/genres.json", { cache: true });
+        return $http.get(Properties.backEndUrl + "/genres.json", { cache: true });
     };
 });
