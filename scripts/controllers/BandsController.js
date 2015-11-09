@@ -1,16 +1,6 @@
 
-var dependencias = [
-    "$scope", "$http", function ($scope, $http) {
+app.controller("BandsController", ["$scope", "Bands", function ($scope, Bands) {
 
-         $http.get("data/bands.json").then(
-            function (respuesta) {
-                $scope.bands = respuesta.data;
-            },
-            function (error) {
-                // Error al leer del archivo
-            }
-        );
-    }
-];
+    $scope.bands = Bands.data;
 
-app.controller("BandsController", dependencias);
+}]);

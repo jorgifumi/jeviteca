@@ -1,25 +1,36 @@
 
-var app = angular.module('jeviteca', ["ngRoute", "route-segment", "view-segment"]);
+var app = angular.module('jeviteca', ["ngRoute"]);
 
-app.config(["$routeSegmentProvider", "$routeProvider", function ($routeSegmentProvider, $routeProvider) {
+app.config(["$routeProvider", function ($routeProvider) {
 
-    $routeSegmentProvider.when("/albums", "albums");
-    $routeSegmentProvider.when("/bands", "bands");
-    $routeSegmentProvider.when("/genres", "genres");
-
-    $routeSegmentProvider.segment("albums", {
+    $routeProvider.when("/albums", {
         controller: "AlbumsController",
-        templateUrl: "views/Albums.html"
+        templateUrl: "views/Albums.html",
+        resolve: {
+            Albums: ["AlbumsProvider", function (AlbumsProvider) {
+                return AlbumsProvider.getAlbums();
+            }]
+        }
     });
 
-    $routeSegmentProvider.segment("bands", {
+    $routeProvider.when("/bands", {
         controller: "BandsController",
-        templateUrl: "views/Bands.html"
+        templateUrl: "views/Bands.html",
+        resolve: {
+            Bands: ["BandsProvider", function (BandsProvider) {
+                return BandsProvider.getBands();
+            } ]
+        }
     });
 
-    $routeSegmentProvider.segment("genres", {
+    $routeProvider.when("/genres", {
         controller: "GenresController",
-        templateUrl: "views/Genres.html"
+        templateUrl: "views/Genres.html",
+        resolve: {
+            Genres: ["GenresProvider", function (GenresProvider) {
+                return GenresProvider.getGenres();
+            } ]
+        }
     });
 
     // Configuramos una ruta por defecto.

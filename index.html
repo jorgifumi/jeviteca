@@ -7,25 +7,25 @@
     <style>body { padding-top: 70px; }</style>
 </head>
 <body ng-app="jeviteca">
-<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Jeviteca</a>
+<div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/albums">Jeviteca</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li ng-class="{ 'active': routeIsAlbums() }"><a href="#/albums">Albums</a></li>
+                <li ng-class="{ 'active': routeIsBands() }"><a href="#/bands">Bands</a></li>
+                <li ng-class="{ 'active': routeIsGenres() }"><a href="#/genres">Genres</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav">
-            <li ng-class="{ 'active': routeIsAlbums() }"><a href="#/albums">Albums</a></li>
-            <li ng-class="{ 'active': routeIsBands() }"><a href="#/bands">Bands</a></li>
-            <li ng-class="{ 'active': routeIsGenres() }"><a href="#/genres">Genres</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
-<section app-view-segment="0"></section>
-
+    <section ng-view></section>
+</div>
     <!-- Cargamos librerias AngularJS -->
     <script src="vendor/angular.min.js"></script>
     <script src="vendor/angular-route.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-route-segment/1.5.0/angular-route-segment.min.js"></script>
     <!-- Cargamos app.js -->
     <script src="scripts/app.js"></script>
     <!-- Cargamos controladores -->
@@ -33,5 +33,9 @@
     <script src="scripts/controllers/AlbumsController.js"></script>
     <script src="scripts/controllers/BandsController.js"></script>
     <script src="scripts/controllers/GenresController.js"></script>
+    <!-- Cargamos servicios -->
+    <script src="scripts/services/AlbumsProvider.js"></script>
+    <script src="scripts/services/BandsProvider.js"></script>
+    <script src="scripts/services/GenresProvider.js"></script>
 </body>
 </html>
