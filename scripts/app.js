@@ -1,14 +1,20 @@
 
 var app = angular.module('jeviteca', ["ngRoute"]);
 
+app.config(["BackendProvider", "Properties", function (BackendProvider, Properties) {
+
+    BackendProvider.setUpUrlBackend(Properties.urlBackEnd);
+    BackendProvider.enableCache();
+} ]);
+
 app.config(["$routeProvider", function ($routeProvider) {
 
     $routeProvider.when("/albums", {
         controller: "AlbumsController",
         templateUrl: "views/Albums.html",
         resolve: {
-            Albums: ["AlbumsProvider", function (AlbumsProvider) {
-                return AlbumsProvider.getAlbums();
+            Albums: ["Backend", function (Backend) {
+                return Backend.getAlbums();
             }]
         }
     });
@@ -17,8 +23,8 @@ app.config(["$routeProvider", function ($routeProvider) {
         controller: "BandsController",
         templateUrl: "views/Bands.html",
         resolve: {
-            Bands: ["BandsProvider", function (BandsProvider) {
-                return BandsProvider.getBands();
+            Bands: ["Backend", function (Backend) {
+                return Backend.getBands();
             } ]
         }
     });
@@ -27,8 +33,8 @@ app.config(["$routeProvider", function ($routeProvider) {
         controller: "GenresController",
         templateUrl: "views/Genres.html",
         resolve: {
-            Genres: ["GenresProvider", function (GenresProvider) {
-                return GenresProvider.getGenres();
+            Genres: ["Backend", function (Backend) {
+                return Backend.getGenres();
             } ]
         }
     });

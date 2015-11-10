@@ -1,4 +1,4 @@
 
 app.constant("Properties", {
-    backEndUrl: "backend/data"
+    urlBackEnd: "backend/data"
 });
