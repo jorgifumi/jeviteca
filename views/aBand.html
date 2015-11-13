@@ -1,0 +1,9 @@
+
+<td><a href="#">Fav</a></td>
+<td><strong>{{ ::band.name }}</strong></td>
+<td>{{ ::band.origin }}</td>
+<td>
+    <ul>
+        <li ng-repeat="member in band.members">{{ ::member.name }}</li>
+    </ul>
+</td>

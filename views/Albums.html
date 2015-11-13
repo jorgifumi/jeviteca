@@ -5,14 +5,7 @@
         <td><h4>Year</h4></td>
         <td><h4>Tracks</h4></td>
     </tr>
-    <tr ng-repeat="album in albums">
-        <td><img src="images/{{ ::album.image }}" alt="{{ ::album.title }}" width="200" class="img-thumbnail"></td>
-        <td><strong>{{ ::album.title }}</strong> <a href="">Fav</a></td>
-        <td>{{ ::album.year }}</td>
-        <td>
-            <ol>
-                <li ng-repeat="track in album.tracklist">{{ ::track }}</li>
-            </ol>
-        </td>
+    <tr an-album album="album" ng-repeat="album in albums">
+
     </tr>
 </table>
