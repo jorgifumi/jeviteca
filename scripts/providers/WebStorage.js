@@ -29,7 +29,12 @@ app.provider("WebStorage", [function () {
                 },
                 isFavAlbum: function (id) {
                     var data = JSON.parse(localStorage.getItem("favAlbums"));
-                    return data(id);
+
+                    if (data[id]) {
+                        return true;
+                    }
+                    return false;
+
                 }
             }
         }]

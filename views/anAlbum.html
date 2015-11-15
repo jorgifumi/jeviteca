@@ -1,6 +1,6 @@
 
 <td><img ng-src="images/{{ ::album.image }}" alt="{{ ::album.title }}" width="200" class="img-thumbnail"></td>
-<td><strong>{{ ::album.title }}</strong> <button type="button" ng-click="fav()">Fav:  {{favAlbums}}</button></td>
+<td><strong>{{ ::album.title }}</strong> <i type="button" ng-click="fav()"><span ng-class="[{ 'glyphicon glyphicon-star': isFav(album.id) },{ 'glyphicon glyphicon-star-empty': !isFav(album.id) }]"></span></i></td>
 <td>{{ ::album.year }}</td>
 <td>
     <ol>
