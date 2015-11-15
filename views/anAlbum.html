@@ -1,5 +1,5 @@
 
-<td><img ng-src="images/{{ ::album.image }}" alt="{{ ::album.title }}" width="200" class="img-thumbnail"></td>
+<td><img ng-src="{{ ::album.image | ImagePath }}" alt="{{ ::album.title }}" width="200" class="img-thumbnail"></td>
 <td><strong>{{ ::album.title }}</strong>
     <fav-item item="album" fav-type="album"/>
 </td>

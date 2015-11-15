@@ -1,5 +1,9 @@
-
 <td>
     <strong>{{ ::genre.name }}</strong>
     <fav-item item="genre" fav-type="genre"/>
+
+<td>
+    <span ng-repeat="album in genre.albums">{{ ::album.title }} </span>
+    <!-- {{ ::genre.albums | AlbumList }} -->
+
 </td>
