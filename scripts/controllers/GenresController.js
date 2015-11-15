@@ -1,6 +1,7 @@
 
-app.controller("GenresController", ["$scope", "Genres", function ($scope, Genres) {
+app.controller("GenresController", ["$scope", "Genres", "FavGenres", function ($scope, Genres, FavGenres) {
 
     $scope.genres = Genres.data;
+    $scope.favGenres = FavGenres;
 
 }]);

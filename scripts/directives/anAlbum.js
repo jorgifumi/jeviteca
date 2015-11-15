@@ -1,5 +1,5 @@
 
-app.directive("anAlbum", [function () {
+app.directive("anAlbum", ["WebStorage", function (WebStorage) {
 
     return {
         restrict: "EA",
