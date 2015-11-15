@@ -7,6 +7,10 @@ app.config(["BackendProvider", "Properties", function (BackendProvider, Properti
     BackendProvider.enableCache();
 } ]);
 
+app.config(["WebStorageProvider", function (WebStorageProvider) {
+    window.console.log("Navegador compatible: " + WebStorageProvider.browserCapable());
+}]);
+
 app.config(["$routeProvider", function ($routeProvider) {
 
     $routeProvider.when("/albums", {
@@ -15,6 +19,10 @@ app.config(["$routeProvider", function ($routeProvider) {
         resolve: {
             Albums: ["Backend", function (Backend) {
                 return Backend.getAlbums();
+            }],
+            FavAlbums: ["WebStorage", function (WebStorage) {
+                return WebStorage.getFavAlbums();
+                debugger;
             }]
         }
     });
@@ -25,7 +33,7 @@ app.config(["$routeProvider", function ($routeProvider) {
         resolve: {
             Bands: ["Backend", function (Backend) {
                 return Backend.getBands();
-            } ]
+            }]
         }
     });
 
@@ -35,7 +43,7 @@ app.config(["$routeProvider", function ($routeProvider) {
         resolve: {
             Genres: ["Backend", function (Backend) {
                 return Backend.getGenres();
-            } ]
+            }]
         }
     });
 

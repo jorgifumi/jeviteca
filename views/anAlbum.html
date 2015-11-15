@@ -1,6 +1,6 @@
 
-<td><img src="images/{{ ::album.image }}" alt="{{ ::album.title }}" width="200" class="img-thumbnail"></td>
-<td><strong>{{ ::album.title }}</strong> <a href="">Fav</a></td>
+<td><img ng-src="images/{{ ::album.image }}" alt="{{ ::album.title }}" width="200" class="img-thumbnail"></td>
+<td><strong>{{ ::album.title }}</strong> <button type="button" ng-click="fav()">Fav: {{ ::favAlbum }}</button></td>
 <td>{{ ::album.year }}</td>
 <td>
     <ol>

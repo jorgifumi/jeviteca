@@ -1,11 +1,18 @@
 
-app.directive("anAlbum", [function () {
+app.directive("anAlbum", ["WebStorage", function (WebStorage) {
 
     return {
         restrict: "EA",
         templateUrl: "views/anAlbum.html",
         scope: {
-            album: "="
+            album: "=",
+            favAlbum: "=",
+        },
+        link: function (scope) {
+            scope.fav = function () {
+                WebStorage.setFavAlbum(scope.album.id);
+                //debugger;
+            }
         }
     };
 }]);
