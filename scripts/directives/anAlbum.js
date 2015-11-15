@@ -10,11 +10,11 @@ app.directive("anAlbum", ["WebStorage", function (WebStorage) {
         },
         link: function (scope) {
             scope.fav = function () {
-                WebStorage.setFavAlbum(scope.album.id);
+                WebStorage.switchFav(scope.album.id, "album");
             };
 
-            scope.isFav = function (id) {
-                return WebStorage.isFavAlbum(id);
+            scope.isFav = function () {
+                return WebStorage.isFav(scope.album.id, "album");
             }
         }
     };

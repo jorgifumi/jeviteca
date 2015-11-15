@@ -1,3 +1,4 @@
+'use strict';
 
 app.provider("WebStorage", [function () {
 
@@ -10,31 +11,41 @@ app.provider("WebStorage", [function () {
 
         $get: ["$q", function ($q) {
             return {
-                setFavAlbum: function (albumId) {
-                    // Leo lo que hay actualmente
-                    var data = JSON.parse(localStorage.getItem("favAlbums"));
-                    // Se invierte el valor
-                    if(data[albumId]) {
-                        data[albumId.toString()] = false;
-                    }else{
-                        data[albumId.toString()] = true;
-                    }
-                    localStorage.setItem("favAlbums", JSON.stringify(data));
-                },
-                getFavAlbums: function () {
+
+                getFavs: function (type) {
                     var diferido = $q.defer();
-                    diferido.resolve(JSON.parse(localStorage.getItem("favAlbums")));
+                    diferido.resolve(JSON.parse(localStorage.getItem(type)));
 
                     return diferido.promise;
                 },
-                isFavAlbum: function (id) {
-                    var data = JSON.parse(localStorage.getItem("favAlbums"));
 
-                    if (data[id]) {
-                        return true;
+                switchFav: function (id, type) {
+                    //Leer valor actual
+                    var data = JSON.parse(localStorage.getItem(type));
+
+                    // Se invierte el valor
+                    if( data !== null) {
+                        if(data[id]){
+                            // Si es true
+                            data[id.toString()] = false;
+                        }else{
+                            data[id.toString()] = true;
+                        }
+                    }else{
+                        data = {};
+                        data[id.toString()] = true;
+                    }
+
+                    localStorage.setItem(type, JSON.stringify(data));
+                },
+                isFav: function (id,type) {
+                    var data = JSON.parse(localStorage.getItem(type));
+                    if (data !== null) {
+                        if (data[id]) {
+                            return true;
+                        }
                     }
                     return false;
-
                 }
             }
         }]
