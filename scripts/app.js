@@ -32,6 +32,9 @@ app.config(["$routeProvider", function ($routeProvider) {
         resolve: {
             Bands: ["Backend", function (Backend) {
                 return Backend.getBands();
+            }],
+            FavBands: ["WebStorage", function (WebStorage) {
+                return WebStorage.getFavs("band");
             }]
         }
     });
@@ -42,6 +45,9 @@ app.config(["$routeProvider", function ($routeProvider) {
         resolve: {
             Genres: ["Backend", function (Backend) {
                 return Backend.getGenres();
+            }],
+            FavGenres: ["WebStorage", function (WebStorage) {
+                return WebStorage.getFavs("genre");
             }]
         }
     });

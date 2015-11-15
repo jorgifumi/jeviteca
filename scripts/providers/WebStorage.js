@@ -1,4 +1,3 @@
-'use strict';
 
 app.provider("WebStorage", [function () {
 
