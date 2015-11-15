@@ -18,15 +18,15 @@ app.provider("Backend", [function () {
         $get: ["$http", function ($http) {
             return {
                 getAlbums: function () {
-                    return $http.get(urlBE + "/albums.json", {cache: cacheIsOn});
+                    return $http.get(urlBE + "/data/albums.json", {cache: cacheIsOn});
                 },
 
                 getBands: function() {
-                    return $http.get(urlBE + "/bands.json", {cache: cacheIsOn});
+                    return $http.get(urlBE + "/data/bands.json", {cache: cacheIsOn});
                 },
 
                 getGenres: function() {
-                    return $http.get(urlBE + "/genres.json", { cache: cacheIsOn });
+                    return $http.get(urlBE + "/data/genres.json", { cache: cacheIsOn });
                 }
             }
         }]

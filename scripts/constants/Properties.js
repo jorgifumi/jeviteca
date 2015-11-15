@@ -1,4 +1,5 @@
 
 app.constant("Properties", {
-    urlBackEnd: "backend/data"
+    urlBackEnd: "backend",
+    urlImages: "images"
 });
