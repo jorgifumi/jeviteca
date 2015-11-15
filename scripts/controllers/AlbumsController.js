@@ -1,9 +1,9 @@
 
-app.controller("AlbumsController", ["$scope", "Albums", function ($scope, Albums, FavAlbums) {
+app.controller("AlbumsController", ["$scope", "Albums", "FavAlbums", function ($scope, Albums, FavAlbums) {
 
     $scope.albums = Albums.data;
     $scope.favAlbums = FavAlbums;
     window.console.log(FavAlbums);
-    debugger;
+    //debugger;
 
 }]);

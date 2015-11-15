@@ -6,12 +6,15 @@ app.directive("anAlbum", ["WebStorage", function (WebStorage) {
         templateUrl: "views/anAlbum.html",
         scope: {
             album: "=",
-            favAlbum: "=",
+            favAlbums: "="
         },
         link: function (scope) {
             scope.fav = function () {
                 WebStorage.setFavAlbum(scope.album.id);
-                //debugger;
+            };
+
+            scope.isFav = function (id) {
+                WebStorage.isFavAlbum(id)
             }
         }
     };

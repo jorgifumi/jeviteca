@@ -22,7 +22,6 @@ app.config(["$routeProvider", function ($routeProvider) {
             }],
             FavAlbums: ["WebStorage", function (WebStorage) {
                 return WebStorage.getFavAlbums();
-                debugger;
             }]
         }
     });
