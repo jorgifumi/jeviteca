@@ -1,7 +1,10 @@
 
 <td><img ng-src="{{ ::album.image | ImagePath }}" alt="{{ ::album.title }}" width="200" class="img-thumbnail"></td>
-<td><strong>{{ ::album.title }}</strong>
-    <fav-item item="album" fav-type="album"/>
+<td>
+    <div>
+        <button class="btn btn-click" ng-click="notifyClick()"><strong>{{ ::album.title }}</strong></button>
+        <fav-item item="album" fav-type="album"/>
+    </div>
 </td>
 <td>{{ ::album.year }}</td>
 <td>

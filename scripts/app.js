@@ -52,6 +52,30 @@ app.config(["$routeProvider", function ($routeProvider) {
         }
     });
 
+    $routeProvider.when("/detalle/:idAlbum", {
+        controller: "DetailAlbumController",
+        templateUrl: "views/detailAlbum.html",
+        resolve: {
+            Album: ["Backend", "$route" ,"$filter", "$q", function (Backend, $route, $filter, $q) {
+
+                var diferido = $q.defer();
+                diferido.resolve(function () {
+                    Backend.getAlbums().then(function (datos) {
+                        var res = $filter("filter")(datos.data, {"id": $route.current.params.idAlbum})[0];
+                        console.log(res);
+                        return res;
+                    });
+                });
+                return diferido.promise;
+                /*Backend.getAlbums().then(function (datos) {
+                    var res = $filter("filter")(datos.data, {"id": $route.current.params.idAlbum})[0];
+                    console.log(res);
+                    return res;
+                });*/
+            }]
+        }
+    });
+
     // Configuramos una ruta por defecto.
     $routeProvider.otherwise({
         redirectTo: "/albums"
