@@ -1,5 +1,5 @@
 
-app.filter("AlbumList", [function () {
+angular.module('jeviteca').filter("AlbumList", [function () {
     return function (collection) {
         var result = [];
         angular.forEach(collection, function (value, key) {

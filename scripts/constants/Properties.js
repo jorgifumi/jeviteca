@@ -1,5 +1,5 @@
 
-app.constant("Properties", {
+angular.module('jeviteca').constant("Properties", {
     urlBackEnd: "backend",
     urlImages: "images"
 });

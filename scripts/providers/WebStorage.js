@@ -1,5 +1,5 @@
 
-app.provider("WebStorage", [function () {
+angular.module('jeviteca').provider("WebStorage", [function () {
 
     return {
         browserCapable: function () {
@@ -24,12 +24,7 @@ app.provider("WebStorage", [function () {
 
                     // Se invierte el valor
                     if( data !== null) {
-                        if(data[id]){
-                            // Si es true
-                            data[id.toString()] = false;
-                        }else{
-                            data[id.toString()] = true;
-                        }
+                        data[id.toString()] = !data[id.toString()];
                     }else{
                         data = {};
                         data[id.toString()] = true;

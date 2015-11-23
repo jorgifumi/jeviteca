@@ -1,5 +1,5 @@
 
-app.controller("AlbumsController", ["$scope", "Albums", "FavAlbums", function ($scope, Albums, FavAlbums) {
+angular.module('jeviteca').controller("AlbumsController", ["$scope", "Albums", "FavAlbums", function ($scope, Albums, FavAlbums) {
 
     $scope.albums = Albums.data;
     $scope.favAlbums = FavAlbums;

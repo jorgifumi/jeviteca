@@ -1,5 +1,5 @@
 
-app.controller("NavController", ["$scope", "$route", function ($scope, $route) {
+angular.module('jeviteca').controller("NavController", ["$scope", "$route", function ($scope, $route) {
 
     $scope.routeIsAlbums = function () {
         return $route.current && $route.current.$$route && $route.current.$$route.originalPath === "/albums";

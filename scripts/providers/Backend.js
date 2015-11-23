@@ -1,5 +1,5 @@
 
-app.provider("Backend", [function () {
+angular.module('jeviteca').provider("Backend", [function () {
 
     var urlBE = "";
     var cacheIsOn = false;

@@ -1,4 +1,4 @@
-app.directive("aBand", [function () {
+angular.module('jeviteca').directive("aBand", [function () {
 
     return {
         restrict: "EA",

@@ -1,5 +1,5 @@
 
-app.directive("aGenre", [function () {
+angular.module('jeviteca').directive("aGenre", [function () {
 
     return {
         restrict: "EA",

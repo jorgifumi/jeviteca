@@ -1,17 +1,17 @@
 
 var app = angular.module('jeviteca', ["ngRoute"]);
 
-app.config(["BackendProvider", "Properties", function (BackendProvider, Properties) {
+angular.module('jeviteca').config(["BackendProvider", "Properties", function (BackendProvider, Properties) {
 
     BackendProvider.setUpUrlBackend(Properties.urlBackEnd);
     BackendProvider.enableCache();
 } ]);
 
-app.config(["WebStorageProvider", function (WebStorageProvider) {
+angular.module('jeviteca').config(["WebStorageProvider", function (WebStorageProvider) {
     window.console.log("Navegador compatible: " + WebStorageProvider.browserCapable());
 }]);
 
-app.config(["$routeProvider", function ($routeProvider) {
+angular.module('jeviteca').config(["$routeProvider", function ($routeProvider) {
 
     $routeProvider.when("/albums", {
         controller: "AlbumsController",

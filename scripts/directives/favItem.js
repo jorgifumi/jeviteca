@@ -1,5 +1,5 @@
 
-app.directive("favItem", ["WebStorage", function (WebStorage) {
+angular.module('jeviteca').directive("favItem", ["WebStorage", function (WebStorage) {
 
     return {
         restrict: "EA",

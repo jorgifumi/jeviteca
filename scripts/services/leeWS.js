@@ -1,4 +1,4 @@
 
-app.service("leeWS", [function () {
+angular.module('jeviteca').service("leeWS", [function () {
 
 }]);
