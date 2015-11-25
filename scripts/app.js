@@ -59,12 +59,9 @@ app.config(["$routeProvider", function ($routeProvider) {
             Album: ["Backend", "$route" ,"$filter", "$q", function (Backend, $route, $filter, $q) {
 
                 var diferido = $q.defer();
-                diferido.resolve(function () {
-                    Backend.getAlbums().then(function (datos) {
-                        var res = $filter("filter")(datos.data, {"id": $route.current.params.idAlbum})[0];
-                        console.log(res);
-                        return res;
-                    });
+                Backend.getAlbums().then(function(datos) {
+                    var res = $filter("filter")(datos.data, {"id": $route.current.params.idAlbum})[0];
+                    diferido.resolve(res);
                 });
                 return diferido.promise;
                 /*Backend.getAlbums().then(function (datos) {

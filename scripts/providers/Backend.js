@@ -15,7 +15,7 @@ app.provider("Backend", [function () {
         },
 
 
-        $get: ["$http", "$filter", function ($http) {
+        $get: ["$http", function ($http) {
             return {
                 getAlbums: function () {
                     return $http.get(urlBE + "/data/albums.json", {cache: cacheIsOn});
